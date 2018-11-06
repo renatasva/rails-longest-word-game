@@ -1,0 +1,12 @@
+<h1>Games#score</h1>
+
+
+<% if @included && @is_english %>
+  <%= @score = "Congratulations! #{params[:word]} is a valid English word" %>
+<% elsif @word =! @is_english %>
+  <%= @score = "Sorry but #{params[:word]} does not seem to be a valid English word..." %>
+<% elsif @word =! @included %>
+  <%= @score = "Sorry but #{params[:word]} can't be built out of #{params[:letters].split}" %>
+<% end %>
+<br>
+<%= link_to "Start new game", new_path %>
